@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../Gupta Lab/code"
+		},
+		{
+			"name": "BlindsOpener",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp",
+			"iostream": "cpp"
+		}
+	}
+}
