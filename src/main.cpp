@@ -21,16 +21,12 @@
 #include <Wire.h>
 #include <string.h>
 #include <LiquidCrystal_I2C.h>
-#include <Encoder.h>
-#include <Stepper.h>
-#include <ds3231.h>
+
 
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
-int bluePin = 5;
-int pinkPin = 6;
-int yellowPin = 7;
-int orangePin = 8;
+int voltagePin = A1;
+
 
 void setup() {
 
@@ -45,7 +41,11 @@ void setup() {
 void loop() {
   //lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("Hello, world");
+  Serial.print(1);
+  float voltage = analogRead(voltagePin)*5.0/1023.0;
+  String output= "Voltage is " + String(voltage) + "V.";
+  lcd.print(output);
   //lcd.setCursor(0,1);
   lcd.backlight();
+  delay(1000);
 }
