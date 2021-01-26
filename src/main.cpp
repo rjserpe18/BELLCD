@@ -25,8 +25,12 @@
 
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
-int voltagePin = A1;
+int vBattery = A1;
+int vPanel = A2;
+int vCurrent = A3;
 
+//int Vbat
+//int T14 
 
 void setup() {
 
@@ -42,10 +46,19 @@ void loop() {
   //lcd.clear();
   lcd.setCursor(0,0);
   Serial.print(1);
-  float voltage = analogRead(voltagePin)*5.0/1023.0;
-  String output= "Voltage is " + String(voltage) + "V.";
-  lcd.print(output);
-  //lcd.setCursor(0,1);
+  
+  // real current and voltage calculated for board
+  //float voltage =  analogRead(vBat)*5.0/1023.0*2/2.21*4.5/2.45;
+  //float current  = (2.5 - (1.96/2.15)*(analogRead(vBat) - analogRead(T14)) *5.0/1023.0)/(0.27);
+
+  float voltage = analogRead(vBattery)*5.0/1023.0*2/2.21*5/2.45;
+  //float current = analogRead(vCurrent) * 5.0/1023.0*1.96/2.15;
+  float current = (2.5 - (1.96/2.15)*analogRead(vCurrent) *5.0/1023.0)/(0.27);
+  String voltageOutput= "Voltage is " + String(voltage) + "V.";
+  String currentOutput = "Current is " + String(current) + "A.";
+  lcd.print(voltageOutput);
+  lcd.setCursor(0,1);
+  lcd.print(currentOutput);
   lcd.backlight();
   delay(1000);
 }

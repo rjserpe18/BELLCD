@@ -1,17 +1,12 @@
 {
 	"folders": [
 		{
-			"path": "../../../../../Gupta Lab/code"
+			"path": "C:\\Users\\Do\\Desktop\\BELLCD"
 		},
 		{
-			"name": "BlindsOpener",
-			"path": ".."
+			"name": "LCD Ammeter",
+			"path": "C:\\Users\\Do\\Documents\\PlatformIO\\Projects\\LCD Ammeter"
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"ostream": "cpp",
-			"iostream": "cpp"
-		}
-	}
+	"settings": {}
 }
